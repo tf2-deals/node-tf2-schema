@@ -1,0 +1,36 @@
+{
+	"compilerOptions": {
+		"declaration": true,
+		"target": "ESNext",
+		"module": "CommonJS",
+		"rootDir": "./src",
+		"outDir": "./dist",
+		"moduleResolution": "node",
+		"esModuleInterop": true,
+		"resolveJsonModule": true,
+		"strict": true,
+		"baseUrl": "./src",
+		"noImplicitAny": true,
+		"noImplicitOverride": true,
+		"noImplicitThis": true,
+		"noImplicitReturns": true,
+		"noFallthroughCasesInSwitch": true,
+		"forceConsistentCasingInFileNames": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"pretty": true,
+	},
+	"ts-node": {
+		"files": true
+	},
+	"files": [
+		"src/types/index.d.ts"
+	],
+	"include": [
+		"src/**/*"
+	],
+	"exclude": [
+		"tests",
+		"./*.ts"
+	]
+}

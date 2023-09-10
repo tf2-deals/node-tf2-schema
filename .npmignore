@@ -1,0 +1,11 @@
+yarn*
+node_modules
+.eslintrc
+.gitignore
+.prettierignore
+.prettierrc
+jest.config.js
+src/tests
+.vscode
+tsconfig.json
+.github
