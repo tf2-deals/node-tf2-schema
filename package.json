@@ -1,0 +1,41 @@
+{
+  "name": "@tf2deals/tf2-schema",
+  "version": "1.0.0",
+  "description": "Get information about TF2 items, effects, skins and more, originally made by Nicklason, modified by EmirGuvenni.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": "git@github.com:tf2-deals/node-tf2-schema.git",
+  "author": "Emir Güvenni <contact@emirguvenni.com>",
+  "license": "MIT",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "tf2",
+    "tf",
+    "team fortress 2",
+    "team fortress",
+    "item",
+    "schema"
+  ],
+  "scripts": {
+    "build": "tsc -p .",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@tf2deals/tf2-sku": "^1.1.1",
+    "axios": "^1.5.0",
+    "semver": "^7.5.4",
+    "vdf-parser": "^1.2.1"
+  },
+  "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^4.2.0",
+    "@types/node": "^20.6.0",
+    "@types/semver": "^7.5.1",
+    "@typescript-eslint/eslint-plugin": "^6.6.0",
+    "@typescript-eslint/parser": "^6.6.0",
+    "prettier": "^3.0.3",
+    "typescript": "^5.2.2"
+  }
+}
