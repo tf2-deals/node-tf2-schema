@@ -182,7 +182,7 @@ export class TF2Schema extends EventEmitter {
 
   private updateWait() {
     if (this.updateTime === -1) return -1;
-    if (!this.schema) throw new Error('Schema not set');
+    if (!this.schema) return 0;
 
     const wait = this.schema.time - new Date().getTime() + this.updateTime;
 
