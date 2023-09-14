@@ -4,7 +4,14 @@ import semver from 'semver';
 import { Schema } from './schema';
 
 interface Options {
-  apiKey?: string;
+  /**
+   * Can be found here: https://steamcommunity.com/dev/apikey
+   *
+   * API keys can be used to control your account. Please don't share with
+   * other people.
+   */
+  apiKey: string;
+  /** @default {milliseconds} 1 day */
   updateTime?: number;
   lite?: boolean;
 }
@@ -12,7 +19,7 @@ interface Options {
 const version = require('../package.json').version;
 
 export class TF2Schema extends EventEmitter {
-  public apiKey: string | undefined;
+  public apiKey: string;
   public updateTime: number;
   public lite: boolean;
 
@@ -24,6 +31,8 @@ export class TF2Schema extends EventEmitter {
 
   constructor(options: Options) {
     super();
+
+    if (!options.apiKey) throw new Error('Missing API key');
 
     this.apiKey = options.apiKey;
     this.updateTime = options.updateTime || 24 * 60 * 60 * 1000;
@@ -80,8 +89,6 @@ export class TF2Schema extends EventEmitter {
    * Gets the schema from the TF2 API
    */
   public async getSchema() {
-    if (!this.apiKey) throw new Error('Missing API key');
-
     const [overview, items, paintkits, items_game] = await Promise.all([
       Schema.getOverview(this.apiKey),
       Schema.getItems(this.apiKey),
