@@ -1358,7 +1358,7 @@ export class Schema {
         (!scmFormat && (item.wear !== null || item.paintkit !== null)
           ? '(e)'
           : '') +
-        '  ';
+        ' ';
     }
 
     // If the quality is Unique (and is Elevated quality), or not Unique,
