@@ -16,7 +16,7 @@ interface Options {
   lite?: boolean;
 }
 
-const version = require('../package.json').version;
+const version = '4.2.14';
 
 export class TF2Schema extends EventEmitter {
   public apiKey: string;
