@@ -111,20 +111,12 @@ export class Schema {
    */
   getItemObjectFromName(name: string): Item | null {
     name = name.toLowerCase();
-    const schemaItem = this.getItemByItemName(name);
 
-    if (!schemaItem) {
-      log('returned L359', { name });
-      return null;
-    }
-
-    const item: Item = {
-      defindex: schemaItem.defindex,
-      quality: schemaItem.item_quality,
+    const item: Partial<Item> = {
+      defindex: undefined,
+      quality: undefined,
       craftable: true,
     };
-
-    log('returned L367', { name, item });
 
     if (
       name.includes('strange part:') ||
@@ -132,8 +124,20 @@ export class Schema {
       name.includes('strange filter:') ||
       name.includes('strange count transfer tool') ||
       name.includes('strange bacon grease')
-    )
-      return item;
+    ) {
+      const schemaItem = this.getItemByItemName(name);
+
+      if (!schemaItem) {
+        log('returned L359', { name, item });
+        return null;
+      }
+
+      item.defindex = schemaItem.defindex;
+      item.quality = item.quality || schemaItem.item_quality; //default quality
+
+      log('returned L367', { name, item });
+      return item as Item;
+    }
 
     const wears = {
       '(factory new)': 1,
@@ -212,7 +216,7 @@ export class Schema {
       if (schemaItem) item.target = schemaItem.defindex;
 
       log('returned L459', { name, item });
-      return item;
+      return item as Item;
     }
 
     const killstreaks = {
@@ -466,7 +470,7 @@ export class Schema {
 
         if (oldDefindex !== item.defindex) {
           log('returned L751', { name, item });
-          return item;
+          return item as Item;
         }
       }
     }
@@ -507,7 +511,7 @@ export class Schema {
 
         if (!schemaItem) {
           log('returned L830', { name, item });
-          return item;
+          return item as Item;
         }
 
         item.target = schemaItem.defindex;
@@ -542,7 +546,7 @@ export class Schema {
 
       if (!schemaItem) {
         log('returned L873', { name, item });
-        return item;
+        return item as Item;
       }
 
       item.output = schemaItem.defindex;
@@ -562,7 +566,7 @@ export class Schema {
 
       if (!schemaItem) {
         log('returned L1003', { name, item });
-        return item;
+        return item as Item;
       }
 
       // Standardize defindex for Strangifier Chemistry Set
@@ -587,7 +591,7 @@ export class Schema {
 
       if (!schemaItem) {
         log('returned L1047', { name, item });
-        return item;
+        return item as Item;
       }
 
       item.target = schemaItem.defindex;
@@ -613,7 +617,7 @@ export class Schema {
 
         if (!schemaItem) {
           log('returned L1093', { name, item });
-          return item;
+          return item as Item;
         }
 
         item.target = schemaItem.defindex;
@@ -626,7 +630,7 @@ export class Schema {
 
     if (item.defindex) {
       log('returned L1114', { name, item });
-      return item;
+      return item as Item;
     }
 
     if (typeof item.paintkit === 'number' && name.includes('war paint')) {
@@ -658,13 +662,13 @@ export class Schema {
         item.quality = 6;
 
         log('returned L1158', { name, item });
-        return item;
+        return item as Item;
       } else if (name.includes('select reserve mann co. supply crate #')) {
         item.defindex = 5660;
         item.crateseries = 60;
         item.quality = 6;
 
-        return item;
+        return item as Item;
       } else if (name.includes('mann co. supply crate #')) {
         log('"Mann Co. Supply Crate"', { name, item });
 
@@ -694,7 +698,7 @@ export class Schema {
         item.quality = 6;
 
         log('returned L1180', { name, item });
-        return item;
+        return item as Item;
       } else if (name.includes('mann co. supply munition #')) {
         log('"Mann Co. Supply Munition"', { name, item });
 
@@ -704,7 +708,7 @@ export class Schema {
         item.quality = 6;
 
         log('returned L1190', { name, item });
-        return item;
+        return item as Item;
       }
 
       let number: number | undefined = undefined;
@@ -729,7 +733,7 @@ export class Schema {
           item.quality = item.quality ?? 6;
 
           log('returned L1224', { name, item });
-          return item;
+          return item as Item;
         }
       }
 
@@ -737,7 +741,7 @@ export class Schema {
 
       if (!schemaItem) {
         log('returned L1235', { name, item });
-        return item;
+        return item as Item;
       }
 
       item.defindex = schemaItem.defindex;
@@ -753,7 +757,7 @@ export class Schema {
       if (schemaItem.item_class === 'supply_crate') {
         log('with "supply_crate" - before', { name, item });
 
-        item.crateseries = this.crateSeriesList?.[item.defindex];
+        item.crateseries = this.crateSeriesList?.[item.defindex as number];
 
         log('with "supply_crate" - after', { name, item });
       } else if (schemaItem.item_class !== 'supply_crate' && number != null) {
@@ -766,7 +770,7 @@ export class Schema {
     }
 
     log('returned L1277', { name, item });
-    return item;
+    return item as Item;
   }
 
   /**
