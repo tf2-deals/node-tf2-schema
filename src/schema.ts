@@ -412,7 +412,7 @@ export class Schema {
               } else {
                 item.quality = 15;
               }
-            } else if (item.quality === 5 && item.quality2 === null) {
+            } else if (item.quality === 5 && item.quality2 == null) {
               item.quality = 15;
             }
           }
@@ -756,12 +756,12 @@ export class Schema {
         item.crateseries = this.crateSeriesList?.[item.defindex];
 
         log('with "supply_crate" - after', { name, item });
-      } else if (schemaItem.item_class !== 'supply_crate' && number !== null) {
-        log('not "supply_crate" and number !== null - before', { name, item });
+      } else if (schemaItem.item_class !== 'supply_crate' && number != null) {
+        log('not "supply_crate" and number != null - before', { name, item });
 
         item.craftnumber = number;
 
-        log('not "supply_crate" and number !== null - after', { name, item });
+        log('not "supply_crate" and number != null - after', { name, item });
       }
     }
 
@@ -1276,7 +1276,7 @@ export class Schema {
       );
     }
 
-    if (schemaItem.item_class === 'supply_crate' && item.crateseries === null) {
+    if (schemaItem.item_class === 'supply_crate' && item.crateseries == null) {
       // If not seriesless, return false
       // Mann Co. Director's Cut Reel, Mann Co. Audition Reel, and Mann Co. Stockpile Crate,
       if (![5739, 5760, 5737, 5738].includes(item.defindex)) return false;
@@ -1355,7 +1355,7 @@ export class Schema {
     if (item.quality2) {
       name +=
         this.getQualityById(item.quality2) +
-        (!scmFormat && (item.wear !== null || item.paintkit !== null)
+        (!scmFormat && (item.wear != null || item.paintkit != null)
           ? '(e)'
           : '') +
         ' ';
