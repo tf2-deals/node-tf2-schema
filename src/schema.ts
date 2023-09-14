@@ -854,7 +854,7 @@ export class Schema {
     const qualities = this.raw.schema.qualities;
 
     for (const type in qualities) {
-      if (!qualities[type]) continue;
+      if (qualities[type] == null) continue;
       if (qualities[type] === id) return this.raw.schema.qualityNames[type];
     }
 
@@ -868,7 +868,7 @@ export class Schema {
     const qualityNames = this.raw.schema.qualityNames;
 
     for (const type in qualityNames) {
-      if (!qualityNames[type]) continue;
+      if (qualityNames[type] == null) continue;
 
       if (name.toLowerCase() === qualityNames[type].toLowerCase())
         return this.raw.schema.qualities[type];
@@ -927,7 +927,7 @@ export class Schema {
     const paintkits = this.raw.schema.paintkits;
 
     for (const id in paintkits) {
-      if (!paintkits[id]) continue;
+      if (paintkits[id] == null) continue;
 
       if (name.toLowerCase() === paintkits[id].toLowerCase())
         return parseInt(id);
@@ -1480,7 +1480,7 @@ export class Schema {
     const paintkits: { id: number; name: string }[] = [];
 
     for (const protodef in protodefs) {
-      if (!protodefs[protodef]) continue;
+      if (protodefs[protodef] == null) continue;
 
       const parts = protodef.split(' ')[0].split('_');
 
