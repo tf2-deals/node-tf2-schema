@@ -622,10 +622,10 @@
   dependencies:
     "@sinonjs/commons" "^3.0.0"
 
-"@tf2deals/tf2-sku@^1.2.1":
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/@tf2deals/tf2-sku/-/tf2-sku-1.2.1.tgz#4c23d67e06ec158dd9f457a01aa598a8e1ddc2fa"
-  integrity sha512-VgEnFUkIRTGWw/YdL/dOm3jlfld7PjffqKFuCKPcDAvQMk6VHk7W9Mzn35Hq5lZ9YAhOf5oHj9iHYyZ2kTPCiQ==
+"@tf2deals/tf2-sku@^1.2.2":
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/@tf2deals/tf2-sku/-/tf2-sku-1.2.2.tgz#fb245b34adbbe8d4a98f8998ca477b9ab5e500f7"
+  integrity sha512-wis4z3RDplF205/GYjRNPO1vDVpewLCgNdNa/RQUXwKUvYJns8QwZmqbwDiv2cnxL+lEvaVhMXeCmp6i2rmAJw==
 
 "@trivago/prettier-plugin-sort-imports@^4.2.0":
   version "4.2.0"

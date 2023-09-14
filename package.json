@@ -24,7 +24,7 @@
     "test": "jest --detectOpenHandles"
   },
   "dependencies": {
-    "@tf2deals/tf2-sku": "^1.2.1",
+    "@tf2deals/tf2-sku": "^1.2.2",
     "axios": "^1.5.0",
     "semver": "^7.5.4",
     "vdf-parser": "^1.2.1"
