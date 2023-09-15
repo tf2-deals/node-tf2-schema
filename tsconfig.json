@@ -1,8 +1,9 @@
 {
 	"compilerOptions": {
 		"declaration": true,
+		"outFile": "./dist/index.js",
 		"target": "ESNext",
-		"module": "CommonJS",
+		"module": "AMD",
 		"rootDir": "./src",
 		"outDir": "./dist",
 		"moduleResolution": "node",
@@ -24,13 +25,14 @@
 		"files": true
 	},
 	"files": [
-		"src/types/index.d.ts"
+		"src/types.ts"
 	],
 	"include": [
-		"src/**/*"
+		"src/**/*",
+		"types"
 	],
 	"exclude": [
-		"tests",
+		"src/tests",
 		"./*.ts"
 	]
 }

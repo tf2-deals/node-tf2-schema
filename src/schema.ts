@@ -24,6 +24,24 @@ import {
   wrenchSkins,
 } from './resources';
 import { SteamRequest } from './steam-request';
+import {
+  CharacterClasses,
+  CrateSeriesList,
+  Effect,
+  GetSchemaResponse,
+  Item,
+  ItemsGame,
+  Overview,
+  Paintkits,
+  Paints,
+  ParticleEffects,
+  Qualities,
+  RawSchema,
+  SchemaAttribute,
+  SchemaItem,
+  SchemaOptions,
+  StrangeParts,
+} from './types';
 
 const language = 'English';
 

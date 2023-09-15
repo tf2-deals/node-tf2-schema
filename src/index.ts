@@ -2,6 +2,7 @@ import { EventEmitter } from 'events';
 import semver from 'semver';
 
 import { Schema } from './schema';
+import { SchemaOptions } from './types';
 
 interface Options {
   /**
