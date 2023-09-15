@@ -1,9 +1,8 @@
 {
 	"compilerOptions": {
 		"declaration": true,
-		"outFile": "./dist/index.js",
 		"target": "ESNext",
-		"module": "AMD",
+		"module": "CommonJS",
 		"rootDir": "./src",
 		"outDir": "./dist",
 		"moduleResolution": "node",
