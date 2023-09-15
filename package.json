@@ -1,6 +1,6 @@
 {
   "name": "@tf2deals/tf2-schema",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Get information about TF2 items, effects, skins and more, originally made by Nicklason, modified by EmirGuvenni.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
