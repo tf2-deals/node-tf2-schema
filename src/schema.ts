@@ -1555,17 +1555,24 @@ async function getAllSchemaItems(
   apiKey: string,
   next: number = 0,
   items?: SchemaItem[],
+  tries = 0,
 ): Promise<SchemaItem[]> {
-  const res = await SteamRequest(
-    'GET',
-    'GetSchemaItems',
-    'v0001',
-    { language, key: apiKey, start: next },
-    undefined,
-  );
+  try {
+    const res = await SteamRequest(
+      'GET',
+      'GetSchemaItems',
+      'v0001',
+      { language, key: apiKey, start: next },
+      undefined,
+    );
 
-  items = (items || []).concat(res.items);
+    tries = 0;
+    items = (items || []).concat(res.items);
 
-  if (res.next) return getAllSchemaItems(apiKey, res.next, items);
-  else return items;
+    if (res.next) return getAllSchemaItems(apiKey, res.next, items);
+    else return items;
+  } catch (err) {
+    if (tries >= 4) throw err;
+    return getAllSchemaItems(apiKey, next, items, tries ? tries + 1 : 1);
+  }
 }
